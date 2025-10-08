@@ -1,0 +1,221 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0b1026;
+  --bg-accent: #131b3a;
+  --bg-card: rgba(255, 255, 255, 0.08);
+  --text: #f5f7ff;
+  --text-muted: rgba(245, 247, 255, 0.72);
+  --primary: #7c5cff;
+  --primary-accent: #a992ff;
+  --border: rgba(255, 255, 255, 0.16);
+  --shadow: 0 24px 48px rgba(12, 17, 34, 0.35);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(124, 92, 255, 0.25), transparent 55%), var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.page {
+  width: min(960px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.hero {
+  display: grid;
+  gap: 1.5rem;
+  text-align: center;
+  padding: 4rem 3rem;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.45), rgba(19, 27, 58, 0.85));
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.hero__logo {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 0.5rem;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+  color: var(--primary-accent);
+}
+
+.hero__title {
+  font-size: clamp(2.75rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-inline: auto;
+  max-width: 46ch;
+}
+
+.hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.85rem 1.8rem;
+  text-decoration: none;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  border: 1px solid transparent;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(124, 92, 255, 0.25);
+}
+
+.button--primary {
+  background: linear-gradient(120deg, var(--primary), var(--primary-accent));
+  color: #0b1026;
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(245, 247, 255, 0.28);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.section__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.section--accent {
+  background: var(--bg-accent);
+  border-radius: 32px;
+  padding: 3.5rem 3rem;
+  box-shadow: var(--shadow);
+}
+
+.section__content {
+  max-width: 540px;
+  display: grid;
+  gap: 1.5rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.form__label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.form__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.25);
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 600px) {
+  .hero {
+    padding: 5rem 6rem;
+  }
+
+  .form__controls {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .form__input {
+    flex: 1;
+  }
+
+  .button--primary {
+    flex-shrink: 0;
+  }
+}
